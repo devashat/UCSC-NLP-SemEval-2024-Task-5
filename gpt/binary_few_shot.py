@@ -9,22 +9,23 @@ with open('legal_test.jsonl', 'r') as file:
     # Read lines one by one and process each JSON object
     val_data = [json.loads(line) for line in file]
 
-# Create a new list to store modified rows
+# Create lists to store modified data and model predictions
+    
 modified_data_list = []
+prediction = []
 
 
 
 # Define the input without the assistant content
 
-ground_truth = []
-prediction = []
-
+# Example legal question and context provided as strings for processing
 question1 = "6. Pleading for relief. Giscard sues Munson and Bigby, who both own separate property abutting Giscard‚Äôs. In Count One he claims that construction work Munson has done on his lot has altered the drainage on his property, causing water to flow onto Giscard‚Äôs property and making his lawn soggy. In Count Two, he makes the same allegations against Bigby. He seeks damages from Munson and Bigby for the past interference. He also seeks an injunction against each of them, requiring them to regrade their property to prevent further drainage problems on his."
 
 explanation1 = "Under early English pleading, from which our own pleading rules evolved, a plaintiff was required to stake his case on one version of the facts and law. He could not, for example, plead in one count that the defendant breached a contract with him, and in another that he could recover for fraud. He could not proceed in assumpsit, for breach of contract, and plead replevin, based on a different writ, in the same action. He had to choose a particular theory. Similarly, he had to take one position from the outset about the facts, and stick with it through trial. He couldn’t plead in one count that the defendant acted as an employee of Ace Motor Company at the time of the events in suit, and plead in another claim that he acted as an independent contractor. Common law pleading demanded ruthless efficiency and tough tactical choices. Even if the plaintiff wasn’t sure when he pleaded what the evidence would ultimately show on the issue—and couldn’t be at the time of pleading— he had to commit himself at the outset. A party was required to elect a particular set of facts and a legal theory at the pleading stage. Unfortunately, this forced a litigant to set forth his allegations with a degree of certainty that often was not warranted in terms of the state of his knowledge at that point in the case. If the facts he asserted in the pleadings were not confirmed by later proof, the action or defense would fail even if his proof demonstrated a right to relief on some other theory. Wright & Miller, Federal Practice and Procedure §1282. The Federal Rules rebel against such rigid constraints at the pleading stage. Under Rule 8(d)(3), the plaintiff may assert as many alternative versions of the claim as he has evidence to support, may include both legal and equitable claims in the same complaint, and may assert different versions of a claim ‘‘regardless of consistency.’’ The Rules recognize that, when the plaintiff drafts the complaint, he may not be able to predict what facts will ultimately be found by the jury at trial. For example, it may be impossible at the outset of a case, without discovery, for the plaintiff to know whether a defendant acted as an independent contractor or as an employee. That’s a complex factual issue, which is governed by a fairly ambiguous, multifactor test. See Restatement (Second) of Agency, §220. Ultimately, if the issue must be determined in the case, the jury will decide it based on the evidence presented at trial. The plaintiff’s lawyer isn’t required to stake his case on the prediction of what that determination will be. Under Rule 11, he may allege different versions of his claim, alleging one basis for recovery if the defendant is found to be an employee, and another if he is found to be an independent contractor, so long as he has evidentiary support for each position. Similarly, he may demand different relief, depending on which claim he proves at trial. As the case unfolds, the plaintiff may abandon one version or another of his claim if it becomes clear that one is unsupported. If, however, he has support for multiple versions of his claim after discovery, he may attempt to prove each version of his claim for which he has supporting evidence at trial. Here’s a thought-provoking question that considers the meaning of Rule 8(d)(3)."
 
 Choice = "Giscard has pleaded inconsistently by alleging in one count that Munson caused damage to the lawn, and in the other count that Bigby has."
 
+# Format the input data for the GPT model, incorporating the question, context, and a choice
 prompt_1 = f"""
 
 Example 1:
@@ -62,6 +63,7 @@ Choice:
 
 ans2 = "1"
 
+# Instructions for the GPT model to follow when processing the input data
 system_instruction = """
 
 You are an AI legal expert with expertise in U.S. Civil Procedure and U.S. Civil Law, known for your strong reasoning abilities. 
@@ -79,7 +81,7 @@ Your goal is to ensure accurate answers and thorough reasoning.
 
 """
 
-
+# Process each item in the test dataset, appending system instructions and the examples prepared above
 for row in val_data:
     message = []
     #message.append(row['messages'][0])

@@ -6,29 +6,25 @@ import pandas as pd
 # Assuming df is your DataFrame
 df = pd.read_csv('test.csv')
 
+
+# Strip leading and trailing spaces from 'question' and 'explanation' columns.
 df['question'] = df['question'].str.strip()
 df['explanation'] = df['explanation'].str.strip()
+
 transformed_df = pd.DataFrame()
 
+
+# Iterate through each unique question in the DataFrame.
 for question, group in df.groupby(['question']):
     
-    # if any(group['label'] == 1):
-    #     # Extract the correct answer for the current question
-    #     correct_answer = group.loc[group['label'] == 1, 'answer'].iloc[0]
-    # else:
-    #     # If no answer has label 1, set correct_answer to an empty string or any default value
-    #     correct_answer = ''
-
-    # Create a new row for the question in the transformed DataFrame
-    #print("GOUTP ANS: ", group['answer'].values)
     d = group['answer'].reset_index().to_dict()['answer']
     d[max(d.keys())+1] = "None of The above"
+    
+    # Create a new row with the question, the explanation with the most words, and the modified answers.
     new_row = {
         'Question': question[0],
         'Explanation': max(group['explanation'], key=lambda x: len(str(x).split())),
-        'Answers': d,#'[' + ', '.join(map(str, group['answer'])) + ']',
-        #'Correct_Answer': correct_answer,
-        #'Analysis': '<sep>'.join(map(str, group['analysis']))
+        'Answers': d,
     }
 
     # Append the new row to the transformed DataFrame
