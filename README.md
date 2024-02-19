@@ -10,7 +10,18 @@ This repository contains the codebase that underlies our experimentation for the
 
 - `binary_few_shot.py`: Performs few shot prompting for either GPT-3.5 or GPT-4 on the test data. Data must be in binary classification format.
 - `multi_choice_few_shot.py`: Performs few shot prompting for either GPT-3.5 or GPT-4 on the test data. Data must be in multi-choice format.
-- `reformat_tesT_data.py`: Converts test data from binary classification format to multi-choice format.
+- `reformat_test_data.py`: Converts test data from binary classification format to multi-choice format.
 
 ### BERT
 
+
+## How to Run
+
+### GPT
+
+- Make sure the environment you are running the scripts in has an OpenAI access key defined so that the API can be accessed. 
+- To run few shot prompting with binary classification, use `binary_few_shot.py`.
+- To run few shot prompting with multi-choice classification, first reformat the data using `reformat_test_data.py`. Then, use `multi_choice_few_shot.py`.
+- For both scripts, set the `model` variable to the desired version of GPT-3.5 or GPT-4, then you may run the script.
+
+### BERT
