@@ -4,7 +4,7 @@ This repository contains the codebase that underlies our experimentation for the
 
 ## Contained Files
 
-**Data: When we refer to data as being in "binary classification format", we mean that it is in the format provided to us by the task organizers. When we refer to it being in "multi-choice format", we mean that we have run the reformatting script on the data provided to us to create a new dataset.**
+**Note on Data: When we refer to data as being in "binary classification format", we mean that it is in the format provided to us by the task organizers. When we refer to it being in "multi-choice format", we mean that we have run the reformatting script on the data provided to us to create a new dataset.**
 
 ### GPT
 
@@ -13,6 +13,9 @@ This repository contains the codebase that underlies our experimentation for the
 - `reformat_test_data.py`: Converts test data from binary classification format to multi-choice format.
 
 ### BERT
+
+- `inference.py`: Generates predictions for the intended BERT model.
+- `train.py`: Runs training on the intended BERT model. 
 
 
 ## How to Run
@@ -25,3 +28,6 @@ This repository contains the codebase that underlies our experimentation for the
 - For both scripts, set the `model` variable to the desired version of GPT-3.5 or GPT-4, then you may run the script.
 
 ### BERT
+
+- There is a collection of bash scripts that when run, call either `train.py` or `inference.py` for either vanilla BERT or Legal BERT.
+- If need be, change the `--dataset` flag in the bash script to the appropriately named dataset you have stored locally.
