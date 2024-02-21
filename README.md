@@ -1,10 +1,10 @@
 # NLP at UC Santa Cruz at SemEval-2024 Task 5: Legal Answer Validation using Few-Shot Multi-Choice QA
 
-This repository contains the codebase that underlies our experimentation for the Task. 
+This repository contains the code that underlies our experimentation for [SemEval-2024 Task 5: The Legal Argument Reasoning Task in Civil Procedure](https://trusthlt.github.io/semeval24/).
 
 ## Contained Files
 
-**Note on Data: When we refer to data as being in "binary classification format", we mean that it is in the format provided to us by the task organizers. When we refer to it being in "multi-choice format", we mean that we have run the reformatting script on the data provided to us to create a new dataset.**
+**Note: When we refer to data as being in "binary classification format", we mean that it is in the format provided to us by the task organizers. When we refer to it being in "multi-choice format", we mean that we have run the reformatting script on the data provided to us to create a new dataset.**
 
 ### GPT
 
