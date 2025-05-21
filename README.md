@@ -1,6 +1,6 @@
 # NLP at UC Santa Cruz at SemEval-2024 Task 5: Legal Answer Validation using Few-Shot Multi-Choice QA
 
-This repository contains the code for our submission for [SemEval-2024 Task 5: The Legal Argument Reasoning Task in Civil Procedure](https://trusthlt.github.io/semeval24/). Our submission secured the 7th place on the leaderboard.
+This repository contains the code for our submission for [SemEval-2024 Task 5: The Legal Argument Reasoning Task in Civil Procedure](https://trusthlt.github.io/semeval24/). Our submission secured the 7th place on the leaderboard. The paper published in conjunction with this codebase can be found here: [NLP at UC Santa Cruz at SemEval-2024 Task 5: Legal Answer Validation using Few-Shot Multi-Choice QA](https://aclanthology.org/2024.semeval-1.189/).
 
 ## Contained Files
 
